@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Bento Landing Page</title>
+  <title>amirulhensem · Student Portfolio</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-main: #f6f7f9;
+      --bg-main: #f6f8fb;
       --bg-card: #ffffff;
-      --text-main: #1f2933;
-      --text-muted: #6b7280;
-      --accent: #3b82f6;
-      --border-soft: #e5e7eb;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent: #0b3c5d; /* Deep Ocean Blue (UMT theme) */
+      --border-soft: #e2e8f0;
       --radius: 18px;
     }
 
@@ -29,7 +29,7 @@
       font-family: 'Inter', sans-serif;
       background: var(--bg-main);
       color: var(--text-main);
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .container {
@@ -41,7 +41,6 @@
     .bento-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto;
       gap: 20px;
     }
 
@@ -52,66 +51,59 @@
       border: 1px solid var(--border-soft);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 14px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .card h2,
+    /* Hover zoom effect */
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
     .card h3 {
       font-weight: 600;
-      margin-bottom: 8px;
     }
 
     .card p {
-      color: var(--text-muted);
       font-size: 0.95rem;
+      color: var(--text-muted);
     }
 
-    /* Grid Placement */
+    /* Grid placement */
     .profile {
       grid-column: span 2;
       grid-row: span 2;
-      /* NEW: background image */
-      background-image: url('bg.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: #ffffff; /* make text readable on image */
-      position: relative;
-      overflow: hidden;
+      justify-content: space-between;
     }
 
-    /* Optional: overlay for readability */
-    .profile::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.4); /* semi-transparent overlay */
-      border-radius: var(--radius);
-      z-index: 0;
-    }
+    .location { grid-column: span 1; }
+    .tech { grid-column: span 1; grid-row: span 2; }
+    .case-study { grid-column: span 2; }
+    .hobby { grid-column: span 1; }
+    .reflection { grid-column: span 1; }
+    .playlist { grid-column: span 4; }
 
-    .profile > div,
-    .profile .social-links {
-      position: relative;
-      z-index: 1;
-    }
-
-    .profile .name {
-      font-size: 1.6rem;
+    /* Profile */
+    .name {
+      font-size: 1.7rem;
       font-weight: 700;
     }
 
-    .profile .program {
-      color: #ffd700; /* golden accent for contrast */
+    .program {
+      color: var(--accent);
       font-weight: 500;
-      margin-bottom: 12px;
+      margin: 6px 0 10px;
+    }
+
+    .tagline {
+      font-style: italic;
+      color: var(--text-muted);
     }
 
     .social-links {
       display: flex;
       gap: 12px;
-      margin-top: 16px;
       flex-wrap: wrap;
     }
 
@@ -120,13 +112,19 @@
       font-size: 0.85rem;
       color: var(--accent);
       border: 1px solid var(--border-soft);
-      padding: 6px 12px;
+      padding: 6px 14px;
       border-radius: 999px;
       transition: background 0.2s ease;
     }
 
     .social-links a:hover {
-      background: rgba(59,130,246,0.08);
+      background: rgba(11, 60, 93, 0.08);
+    }
+
+    /* Spotify embed responsiveness */
+    .spotify-embed iframe {
+      width: 100%;
+      border-radius: 12px;
     }
 
     /* Responsive */
@@ -134,22 +132,19 @@
       .bento-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .playlist {
-        grid-column: span 2;
-      }
+      .playlist { grid-column: span 2; }
     }
 
     @media (max-width: 600px) {
       .bento-grid {
         grid-template-columns: 1fr;
       }
-
       .profile,
       .location,
       .tech,
       .case-study,
       .hobby,
+      .reflection,
       .playlist {
         grid-column: span 1;
       }
@@ -160,60 +155,75 @@
   <div class="container">
     <div class="bento-grid">
 
-      <!-- Card 1: Profile -->
+      <!-- Profile -->
       <div class="card profile">
         <div>
-          <div class="name">Your Name Here</div>
-          <div class="program">Food Science · Year 2</div>
-          <p>
-            Passionate student exploring food systems, laboratory science,
-            and applied research in food technology.
-          </p>
+          <div class="name">amirulhensem</div>
+          <div class="program">Sains Tanaman · Year 2</div>
+          <p class="tagline">“Innovating sains tanaman.”</p>
         </div>
         <div class="social-links">
-          <a href="#">LinkedIn</a>
-          <a href="#">GitHub</a>
-          <a href="#">UMT Portal</a>
+          <a href="#" target="_blank">LinkedIn</a>
+          <a href="#" target="_blank">GitHub</a>
+          <a href="#" target="_blank">UMT Portal</a>
         </div>
       </div>
 
-      <!-- Card 2: Location -->
+      <!-- Location -->
       <div class="card location">
-        <h3>Campus</h3>
-        <p>Universiti Malaysia Terengganu (UMT)</p>
-        <p>Local Time: 10:00 AM</p>
+        <h3>Location</h3>
+        <p>Universiti Malaysia Terengganu</p>
+        <p>Kuala Nerus</p>
       </div>
 
-      <!-- Card 3: Tech Stack -->
+      <!-- Subjects -->
       <div class="card tech">
-        <h3>Academic Focus</h3>
-        <p>• Food Chemistry</p>
-        <p>• Food Microbiology</p>
-        <p>• Food Analysis</p>
-        <p>• Laboratory Techniques</p>
+        <h3>Subjects</h3>
+        <p>• Soil Science</p>
+        <p>• Microbiology</p>
+        <p>• Excel</p>
+        <p>• Lab Analysis</p>
       </div>
 
-      <!-- Card 4: Case Study -->
+      <!-- Case Study -->
       <div class="card case-study">
-        <h3>Recent Case Study</h3>
+        <h3>Case Study</h3>
+        <p><strong>Starch Gelatinization in Local Kuih</strong></p>
         <p>
-          Analysis of Microbial Growth in Processed Food Samples
+          Analyzing texture profiles of Kuih Lapis through laboratory-based
+          gelatinization studies.
         </p>
       </div>
 
-      <!-- Card 5: Hobby -->
+      <!-- Hobby -->
       <div class="card hobby">
-        <h3>Campus Activity</h3>
-        <p>Volunteering & Student Science Club</p>
+        <h3>Hobby</h3>
+        <p>Evening walks at Pantai UMT</p>
       </div>
 
-      <!-- Card 6: Playlist -->
+      <!-- Reflection -->
+      <div class="card reflection">
+        <h3>Why Food Tech Matters in Malaysia</h3>
+        <p>
+          Sustainable food security is crucial for our future. By optimizing
+          local processing methods, we can reduce waste and improve nutrition.
+        </p>
+      </div>
+
+      <!-- Playlist with Spotify Embed -->
       <div class="card playlist">
         <h3>Study Playlist</h3>
-        <p>
-          Placeholder for a music player or embedded playlist to
-          accompany late-night study sessions.
-        </p>
+        <div class="spotify-embed">
+          <iframe
+            data-testid="embed-iframe"
+            src="https://open.spotify.com/embed/track/56TRhAB4SqpRn5NdqHSAFy?utm_source=generator"
+            height="352"
+            frameborder="0"
+            allowfullscreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
+        </div>
       </div>
 
     </div>
