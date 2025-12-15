@@ -14,7 +14,7 @@
       --bg-card: #ffffff;
       --text-main: #0f172a;
       --text-muted: #64748b;
-      --accent: #0b3c5d; /* Deep Ocean Blue (UMT theme) */
+      --accent: #0b3c5d;
       --border-soft: #e2e8f0;
       --radius: 18px;
     }
@@ -55,26 +55,40 @@
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    /* Hover zoom effect */
     .card:hover {
       transform: scale(1.03);
       box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
     }
 
-    .card h3 {
-      font-weight: 600;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    /* Grid placement */
+    /* ===== PROFILE CARD BACKGROUND ===== */
     .profile {
       grid-column: span 2;
       grid-row: span 2;
       justify-content: space-between;
+
+      background-image: url("bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Overlay gelap */
+    .profile::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    /* Pastikan teks atas overlay */
+    .profile > * {
+      position: relative;
+      z-index: 1;
     }
 
     .location { grid-column: span 1; }
@@ -84,21 +98,19 @@
     .reflection { grid-column: span 1; }
     .playlist { grid-column: span 4; }
 
-    /* Profile */
     .name {
       font-size: 1.7rem;
       font-weight: 700;
     }
 
     .program {
-      color: var(--accent);
+      color: #a5d8ff;
       font-weight: 500;
-      margin: 6px 0 10px;
     }
 
     .tagline {
       font-style: italic;
-      color: var(--text-muted);
+      opacity: 0.9;
     }
 
     .social-links {
@@ -110,24 +122,22 @@
     .social-links a {
       text-decoration: none;
       font-size: 0.85rem;
-      color: var(--accent);
-      border: 1px solid var(--border-soft);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.4);
       padding: 6px 14px;
       border-radius: 999px;
       transition: background 0.2s ease;
     }
 
     .social-links a:hover {
-      background: rgba(11, 60, 93, 0.08);
+      background: rgba(255,255,255,0.15);
     }
 
-    /* Spotify embed responsiveness */
     .spotify-embed iframe {
       width: 100%;
       border-radius: 12px;
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
       .bento-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -151,11 +161,11 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="bento-grid">
 
-      <!-- Profile -->
       <div class="card profile">
         <div>
           <div class="name">amirulhensem</div>
@@ -169,14 +179,12 @@
         </div>
       </div>
 
-      <!-- Location -->
       <div class="card location">
         <h3>Location</h3>
         <p>Universiti Malaysia Terengganu</p>
         <p>Kuala Nerus</p>
       </div>
 
-      <!-- Subjects -->
       <div class="card tech">
         <h3>Subjects</h3>
         <p>• Soil Science</p>
@@ -185,23 +193,17 @@
         <p>• Lab Analysis</p>
       </div>
 
-      <!-- Case Study -->
       <div class="card case-study">
         <h3>Case Study</h3>
         <p><strong>Starch Gelatinization in Local Kuih</strong></p>
-        <p>
-          Analyzing texture profiles of Kuih Lapis through laboratory-based
-          gelatinization studies.
-        </p>
+        <p>Analyzing texture profiles of Kuih Lapis.</p>
       </div>
 
-      <!-- Hobby -->
       <div class="card hobby">
         <h3>Hobby</h3>
         <p>Evening walks at Pantai UMT</p>
       </div>
 
-      <!-- Reflection -->
       <div class="card reflection">
         <h3>Why Food Tech Matters in Malaysia</h3>
         <p>
@@ -210,16 +212,13 @@
         </p>
       </div>
 
-      <!-- Playlist with Spotify Embed -->
       <div class="card playlist">
         <h3>Study Playlist</h3>
         <div class="spotify-embed">
           <iframe
-            data-testid="embed-iframe"
-            src="https://open.spotify.com/embed/track/56TRhAB4SqpRn5NdqHSAFy?utm_source=generator"
+            src="https://open.spotify.com/embed/track/56TRhAB4SqpRn5NdqHSAFy"
             height="352"
             frameborder="0"
-            allowfullscreen
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy">
           </iframe>
