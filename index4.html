@@ -75,40 +75,52 @@
       grid-column: span 2;
       grid-row: span 2;
       justify-content: space-between;
+
+      /* Background image */
+      background-image: url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      /* Text & overlay */
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
     }
 
-    .location { grid-column: span 1; }
-    .tech { grid-column: span 1; grid-row: span 2; }
-    .case-study { grid-column: span 2; }
-    .hobby { grid-column: span 1; }
-    .reflection { grid-column: span 1; }
-    .playlist { grid-column: span 4; }
+    /* Overlay for readability */
+    .profile::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.35);
+      z-index: 0;
+      border-radius: var(--radius);
+    }
 
-    /* Profile */
+    /* Ensure content is above overlay */
+    .profile > div,
+    .profile .social-links {
+      position: relative;
+      z-index: 1;
+    }
+
     .name {
       font-size: 1.7rem;
       font-weight: 700;
     }
- .profile {
-      grid-column: span 2;
-      grid-row: span 2;
-      /* NEW: background image */
-      background-image: url('bg.jpg.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: #ffffff; /* make text readable on image */
-      position: relative;
-      overflow: hidden;
+
     .program {
-      color: var(--accent);
+      color: #ffd700; /* Golden accent for contrast */
       font-weight: 500;
       margin: 6px 0 10px;
     }
 
     .tagline {
       font-style: italic;
-      color: var(--text-muted);
+      color: #f0f0f0;
     }
 
     .social-links {
@@ -239,5 +251,4 @@
     </div>
   </div>
 </body>
-</html>
-
+</
