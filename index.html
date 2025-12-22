@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>amirulhensem · Student Portfolio</title>
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -143,6 +142,26 @@
       background: rgba(11, 60, 93, 0.08);
     }
 
+    /* Button Style for App Link */
+    .app-button {
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      background-color: var(--accent);
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      margin-top: auto;
+    }
+
+    .app-button:hover {
+      background-color: #164e75;
+      transform: translateY(-2px);
+    }
+
     /* Spotify embed responsiveness */
     .spotify-embed iframe {
       width: 100%;
@@ -177,7 +196,6 @@
   <div class="container">
     <div class="bento-grid">
 
-      <!-- Profile -->
       <div class="card profile">
         <div>
           <div class="name">amirulhensem</div>
@@ -191,14 +209,12 @@
         </div>
       </div>
 
-      <!-- Location -->
       <div class="card location">
         <h3>Location</h3>
         <p>Universiti Malaysia Terengganu</p>
         <p>Kuala Nerus</p>
       </div>
 
-      <!-- Subjects -->
       <div class="card tech">
         <h3>Subjects</h3>
         <p>• Soil Science</p>
@@ -207,7 +223,6 @@
         <p>• Lab Analysis</p>
       </div>
 
-      <!-- Case Study -->
       <div class="card case-study">
         <h3>Case Study</h3>
         <p><strong>Starch Gelatinization in Local Kuih</strong></p>
@@ -215,15 +230,14 @@
           Analyzing texture profiles of Kuih Lapis through laboratory-based
           gelatinization studies.
         </p>
+        <a href="https://s81233-art.github.io/focus-timer-app/app.html" target="_blank" class="app-button">Try My Focus Timer App</a>
       </div>
 
-      <!-- Hobby -->
       <div class="card hobby">
         <h3>Hobby</h3>
         <p>Evening walks at Pantai UMT</p>
       </div>
 
-      <!-- Reflection -->
       <div class="card reflection">
         <h3>Why Food Tech Matters in Malaysia</h3>
         <p>
@@ -232,7 +246,6 @@
         </p>
       </div>
 
-      <!-- Playlist with Spotify Embed -->
       <div class="card playlist">
         <h3>Study Playlist</h3>
         <div class="spotify-embed">
@@ -251,4 +264,4 @@
     </div>
   </div>
 </body>
-</
+</html>
